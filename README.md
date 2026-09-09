@@ -56,7 +56,8 @@ $ npm run lint
 ## Production deployment
 
 The site is hosted on Cloudflare Workers Static Assets at
-https://compendium.keqingmains.com. `wrangler.jsonc` contains the hosting and custom domain settings.
+https://compendium.keqingmains.com. `wrangler.jsonc` contains the hosting and domain route settings.
+The route serves this hostname directly from Cloudflare. Keep its DNS record proxied (orange cloud) so requests reach the route.
 
 Use Node.js 22, install the locked dependencies with `npm ci`, then run `npm run deploy`.
 Sign in to the KQM Cloudflare account with `npx wrangler@4.127.1 login` first.
