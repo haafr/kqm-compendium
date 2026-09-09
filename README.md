@@ -3,7 +3,7 @@
 ## Build
 
 ### Requirements
-* [Node.js](http://nodejs.org) 14+ (Latest verion of LTS is recommended, webpack does not work with Node.js 17+)
+* [Node.js](http://nodejs.org) 22 (see `.nvmrc`; the generate command includes the compatibility option for Webpack 4)
 * [npm](https://docs.npmjs.com/try-the-latest-stable-version-of-npm) 6.1+
 
 ### Tools
@@ -53,3 +53,14 @@ $ npm run lint
 - `nuxtconfig.js`: the Nuxt.js configuration file.
 - `tailwind.config.js`: the tailwindcss configuration file.
 - `tsconfig.js`: the TypeScript configuration file.
+## Production deployment
+
+The site is hosted on Cloudflare Workers Static Assets at
+https://compendium.keqingmains.com. `wrangler.jsonc` contains the hosting and custom domain settings.
+
+Use Node.js 22, install the locked dependencies with `npm ci`, then run `npm run deploy`.
+Sign in to the KQM Cloudflare account with `npx wrangler@4.127.1 login` first.
+If the shell has a Cloudflare API token for a different account, unset `CLOUDFLARE_API_TOKEN` before deployment.
+
+The deployment command generates the static site and stops if a page cannot be generated.
+The old `/kqm-standards` address redirects to `/`; unknown pages return HTTP 404.

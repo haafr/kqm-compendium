@@ -6,10 +6,11 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "node --openssl-legacy-provider node_modules/nuxt/bin/nuxt.js generate --fail-on-error",
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
-    "lintfix": "npm run lint:js -- --fix"
+    "lintfix": "npm run lint:js -- --fix",
+    "deploy": "npm run generate && npx --yes wrangler@4.127.1 deploy"
   },
   "dependencies": {
     "@nuxt/content": "^1.15.1",

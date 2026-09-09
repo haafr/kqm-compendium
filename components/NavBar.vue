@@ -8,7 +8,7 @@
                 </NuxtLink>
             </div>
             <div class="top-bar flex flex-row items-end">
-                <NuxtLink to="/kqm-standards" class="text-white m-3 pb-1">
+                <NuxtLink to="/" class="text-white m-3 pb-1">
                     KQM Standards
                 </NuxtLink>
             </div>
